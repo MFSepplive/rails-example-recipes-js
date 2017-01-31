@@ -1,0 +1,6 @@
+<% if @ingredient.errors.any? %>
+alert("error: <%= @ingredient.errors.full_messages.first %>");
+<% else %>
+alert("saved successfully");
+$("#ingredient_<%= @ingredient.id %> span").html('<%= @ingredient.name %>');
+<% end %>

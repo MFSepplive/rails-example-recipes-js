@@ -1,0 +1,5 @@
+alert("from the server, for ingredient  <%= @ingredient.id %>");
+
+console.log("now running for <%= @ingredient.id %>");
+$("#ingredient_<%= @ingredient.id %> span").html('<%= escape_javascript(render 'form') %>');
+$("#edit_ingredient_<%= @ingredient.id %>").data('remote', true);

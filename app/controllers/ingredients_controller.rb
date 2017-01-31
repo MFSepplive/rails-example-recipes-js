@@ -39,14 +39,21 @@ class IngredientsController < ApplicationController
 
   # PATCH/PUT /ingredients/1
   # PATCH/PUT /ingredients/1.json
+  # PATCH/PUT /ingredients/1.js
   def update
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to ingredients_path, notice: 'Ingredient was successfully updated.' }
+        format.html {
+          redirect_to ingredients_path, notice: 'Successfully updated.'
+        }
         format.json { render :show, status: :ok, location: @ingredient }
+        format.js { }
       else
         format.html { render :edit }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+        format.json {
+          render json: @ingredient.errors, status: :unprocessable_entity
+        }
+        format.js { }
       end
     end
   end

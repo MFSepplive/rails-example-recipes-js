@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require turbolinks
 
   $(function(){
     $("a[data-background-color]").click(function(e) {
@@ -23,4 +24,9 @@
       this.style.backgroundColor = backgroundColor;
       this.style.color = textColor;
     });
+
+    $("<p>").addClass('timer').appendTo('#headerbar');
+    setInterval(function(){
+         $(".timer").html(new Date().toTimeString());
+    },1000);
   });
